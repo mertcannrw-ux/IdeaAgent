@@ -1,0 +1,66 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Radar main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:path:default",
+    "sql:default",
+    "sql:allow-execute",
+    {
+      "identifier": "http:allow-fetch",
+      "allow": [
+        { "url": "https://api.github.com" },
+        { "url": "https://hn.algolia.com" },
+        { "url": "https://api.anthropic.com" },
+        { "url": "https://api.openai.com" },
+        { "url": "https://api.exa.ai" },
+        { "url": "https://api.search.brave.com" }
+      ]
+    },
+    {
+      "identifier": "http:allow-fetch-send",
+      "allow": [
+        { "url": "https://api.github.com" },
+        { "url": "https://hn.algolia.com" },
+        { "url": "https://api.anthropic.com" },
+        { "url": "https://api.openai.com" },
+        { "url": "https://api.exa.ai" },
+        { "url": "https://api.search.brave.com" }
+      ]
+    },
+    "http:allow-fetch-read-body",
+    "http:allow-fetch-cancel",
+    "http:allow-fetch-cancel-body",
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [{ "path": "$APPDATA/prompts/**" }]
+    },
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [{ "path": "$APPDATA/prompts/**" }]
+    },
+    "fs:allow-read-dir",
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [{ "path": "$APPDATA/prompts/**" }]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [{ "path": "$APPDATA/prompts" }]
+    },
+    "dialog:allow-open",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        { "url": "obsidian://*" },
+        { "url": "https://*" },
+        { "url": "http://*" }
+      ]
+    },
+    {
+      "identifier": "opener:allow-open-path",
+      "allow": [{ "path": "$APPDATA/prompts" }]
+    }
+  ]
+}
